@@ -1,22 +1,21 @@
-'use client'
+'use client';
+
+import React, { createContext, useContext, useEffect, useState } from 'react';
+
 import apiService from '@/services/api';
 import { Product } from '@/types';
-import React, { createContext, useContext, useEffect, useState } from 'react';
 
 interface ProductsContextProps {
   products: Product[];
   loading: boolean;
-  fetchProducts: (query: any) => void;
+  fetchProducts: (param: object) => void;
 }
 
-const ProductsContext = createContext<ProductsContextProps | undefined>(undefined);
+const ProductsContext = createContext<ProductsContextProps | undefined>(
+  undefined,
+);
 
-export const ProductsProvider = ({
-  children,
-}: {
-  children: React.ReactNode;
-}) => {
-
+export function ProductsProvider({ children }: { children: React.ReactNode }) {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -27,7 +26,7 @@ export const ProductsProvider = ({
 
       setProducts(response.data);
       setLoading(false);
-    } catch (err: any) {
+    } catch (err: unknown) {
       setLoading(false);
     }
   };
@@ -41,7 +40,7 @@ export const ProductsProvider = ({
       {children}
     </ProductsContext.Provider>
   );
-};
+}
 
 export const useProducts = () => {
   const context = useContext(ProductsContext);

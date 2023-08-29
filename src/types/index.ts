@@ -1,36 +1,35 @@
-
 export type Category = {
-  id?: number,
-  name: string,
-  image_url: string
-}
+  id?: number;
+  name: string;
+  image_url: string;
+};
 
 export type Additional = {
-  id?: number,
-  name: string,
-  description?: string,
-  image_url: string,
-  price: number,
-}
+  id?: number;
+  name: string;
+  description?: string;
+  image_url: string;
+  price: number;
+};
 
 export type Product = {
-  id?: number,
-  code: string,
-  name: string,
-  price: number,
-  description?: string,
-  image_url: string,
-  category_id: number,
+  id?: number;
+  code: string;
+  name: string;
+  price: number;
+  description?: string;
+  image_url: string;
+  category_id: number;
 
-  additionals?: ProductAdditional[]
-}
+  additionals: ProductAdditional[];
+};
 
 export type ProductAdditional = {
-  id?: number,
-  product_id: number,
-  additional_id: number,
-  additional: Additional
-}
+  id?: number;
+  product_id: number;
+  additional_id: number;
+  additional: Additional;
+};
 
 export type Order = {
   id: number;
@@ -58,12 +57,12 @@ export type NewOrder = {
   payment_method: Payment_Method;
   observation?: string;
   items: OrderItem[];
-}
+};
 
 export enum Payment_Method {
   CREDIT_CARD = 'credit_card',
   DEBIT_CARD = 'debit_card',
-  CASH = 'cash'
+  CASH = 'cash',
 }
 
 export enum Status {
