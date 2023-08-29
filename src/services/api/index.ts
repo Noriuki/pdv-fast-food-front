@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiService = axios.create({
-  baseURL: process.env.NEXT_API_URL || 'http://localhost:3030/api',
+  baseURL: 'https://charming-bat-costume.cyclic.cloud//api',
   headers: {
     'Access-Control-Allow-Origin': '*',
     'Content-Type': 'application/json',
